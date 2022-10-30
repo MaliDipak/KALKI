@@ -5,4 +5,4 @@
 </p>
 
 ## Live
-- 🔭 [**SONAR Rock vs Mine prediction**](https://kalki-ml-sonar.herokuapp.com/)
+- 🔭 [**SONAR Rock vs Mine prediction**](https://kalki-ml-sonar.herokuapp.com/){:target="_blank" rel="noopener"}
