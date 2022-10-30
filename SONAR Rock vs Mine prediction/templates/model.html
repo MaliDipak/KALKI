@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<!--main content of body-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header primary-background text-white">
+                    <h4>SONAR Rock vs Mine prediction</h4>
+                </div>
+                <div class="card-body">
+                    <img class="card-img-top my-2" src="{{ url_for('static', filename='rockmine.jpg') }}"
+                        alt="Model Image">
+                    <p align="justify">Outwardly SONAR technique has exploited the discovery of rocks and minerals which
+                        would have been
+                        very difficult otherwise. The technique exploits certain parameters which will aid to detect the
+                        surface targets or obstacle such as a rock or a mine. This prediction can be done using machine
+                        learning algorithm such as logistic regression which is implemented using python.</p>
+                    <p align="justify">The model used here is Logistic Regression. Logistic regression is a statistical
+                        model that in its basic form uses a logistic function to model a binary dependent variable.</p>
+                </div>
+                <div class="card-footer primary-background text-center">
+                    <a href="/test_model/" class="btn btn-outline-light btn-sm"> TEST
+                        MODEL </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of main content of body-->
+
+{% endblock main %}

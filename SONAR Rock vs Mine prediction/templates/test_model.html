@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<!--main content of body-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header primary-background text-white">
+                    <h4>SONAR Rock vs Mine prediction</h4>
+                </div>
+                <div class="card-body" align="center">
+                    <form method="post" accept-charset="utf-8" name="Modelform">
+                        <div class="col-md-10 form-group" style="text-align: center">
+                            <input type="text" class="form-control" name="signals"
+                                placeholder="Enter the sonar signals seperated with comma(,)">
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <div class="container" style="text-align: left">
+                                <h4><span id="prediction"></span></h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer primary-background text-center">
+                    <a href="#" class="btn btn-outline-light btn-sm" onclick="send_data()"> P R E
+                        D I C T </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of main content of body-->
+
+<!-- java script for prediction -->
+<script>
+    function form_handler(event) {
+        event.preventDefault(); // Don't submit the form normally
+    }
+    function send_data() {
+        document.querySelector('form').addEventListener("submit", form_handler);
+
+        var fd = new FormData(document.querySelector('form'));
+
+        var xhr = new XMLHttpRequest({ mozSystem: true });
+
+        xhr.open('POST', '/predict', true);
+        document.getElementById('prediction').innerHTML = "Just a sec...";
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                document.getElementById('prediction').innerHTML = "Prediction : " + xhr.responseText;
+            }
+        };
+
+        xhr.onload = function () { };
+
+        xhr.send(fd);
+    }
+</script>
+
+{% endblock main %}
